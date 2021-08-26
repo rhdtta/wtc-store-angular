@@ -20,7 +20,6 @@ export class ProductCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log('random', this.random)
   }
 
 }
