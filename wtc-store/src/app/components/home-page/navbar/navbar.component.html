@@ -1,0 +1,86 @@
+<!-- Top Navbar -->
+<nav class="navbar navbar-expand-md navbar-light" style="background-color: #e1e2e4; justify-content: start; height: 43px;">
+    <div  class="container"> <!-- Add a contianer-fluid to wrap the header of navbar -->
+      <a href="#" class="navbar-brand navbar-text h1" style="vertical-align: middle;" >
+        <span class="glyphicon glyphicon-user" style="font-size: 14px;"></span>
+        <i class="bi bi-person-circle" style="font-size: 20px; margin-right: 4px; position: relative; top: 2px;"></i>
+        <span class="d-none d-md-inline" style="font-size: 14px;">Login</span>
+      </a>
+      <!-- This button is toggled on when the windows size is less than md, and simultaneously the dorpdown-list appears -->
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#dropdown-list" aria-expanded="false" aria-controls="Dropdown List"><i class="glyphicon glyphicon-align-center"></i></button>
+      <div class="collapse navbar-collapse" id="dropdown-list">
+        
+        <!-- To make a dropdown list, you need to create a div with class="dropdown" and inside this div you need a button/link
+        and a list that would be should on button/link press -->
+        <div class="dropdown d-none d-md-inline" style="margin-left: 64vw;">
+          <a href="#" class="navbar-text dropdown-toggle" role="button" id="currency-list" data-bs-toggle="dropdown" style="text-decoration: none; font-size: 12px; color: #757677; ">Currency: {{currency}}<span class="caret"></span></a>
+          <ul class="dropdown-menu" aria-labelledby="currency-list">
+            <li><a class="dropdown-item" style="text-decoration: none;" href="#" (click)="onCurrencySubmit('USD')">USD</a></li>
+            <li><a class="dropdown-item" style="text-decoration: none;" href="#" (click)="onCurrencySubmit('GBP')">GBP</a></li>
+            <li><a class="dropdown-item" style="text-decoration: none;" href="#" (click)="onCurrencySubmit('CAD')">CAD</a></li>
+          </ul>
+        </div>
+
+        
+        <div class="dropdown d-none d-md-inline" style="margin-left: 3%;">
+          <a href="#" class="navbar-text dropdown-toggle" role="button" id="language-list" data-bs-toggle="dropdown" style="text-decoration: none; font-size: 12px; color: #757677; ">Language: {{language}}<span class="caret"></span></a>
+          <ul class="dropdown-menu" aria-labelledby="language-list">
+            <li><a class="dropdown-item" style="text-decoration: none;" href="#" (click)="onLanguageSubmit('English')">English</a></li>
+            <li><a class="dropdown-item" style="text-decoration: none;" href="#" (click)="onLanguageSubmit('Espanol')">Espanol</a></li>
+            <li><a class="dropdown-item" style="text-decoration: none;" href="#" (click)="onLanguageSubmit('German')">German</a></li>
+          </ul>
+        </div>
+        
+        <!-- For smaller than md Starts  -->
+        <div class="dropdown d-md-none" style="margin-left: 64vw;">
+          <a href="#" class="navbar-text dropdown-toggle" role="button" id="currency-list" data-bs-toggle="dropdown" style="text-decoration: none; font-size: 12px; color: #757677; ">Currency: {{currency}}<span class="caret"></span></a>
+          <ul class="dropdown-menu" aria-labelledby="currency-list">
+            <li><a class="dropdown-item" style="text-decoration: none;" href="#" (click)="onCurrencySubmit('USD')">USD</a></li>
+            <li><a class="dropdown-item" style="text-decoration: none;" href="#" (click)="onCurrencySubmit('GBP')">GBP</a></li>
+            <li><a class="dropdown-item" style="text-decoration: none;" href="#" (click)="onCurrencySubmit('CAD')">CAD</a></li>
+          </ul>
+        </div>
+        
+        <div class="dropdown d-md-none" style="margin-left: 64vw;">
+          <a href="#" class="navbar-text dropdown-toggle" role="button" id="language-list" data-bs-toggle="dropdown" style="text-decoration: none; font-size: 12px; color: #757677; ">Language: {{language}}<span class="caret"></span></a>
+          <ul class="dropdown-menu" aria-labelledby="language-list">
+            <li><a class="dropdown-item" style="text-decoration: none;" href="#" (click)="onLanguageSubmit('English')">English</a></li>
+            <li><a class="dropdown-item" style="text-decoration: none;" href="#" (click)="onLanguageSubmit('Espanol')">Espanol</a></li>
+            <li><a class="dropdown-item" style="text-decoration: none;" href="#" (click)="onLanguageSubmit('German')">German</a></li>
+          </ul>
+        </div>
+        <!-- For smaller than md Ends -->
+        
+      </div>
+    </div>
+  </nav>
+  
+
+<!-- Middle Navbar  -->
+<section class="container-fluid mt-3 mb-2 ">
+  <div class="container" style="display: flex; justify-content: space-between;">
+    <h3 style="color: #757677;" class="d-inline">WTC Store</h3>
+    <ws-cart class="mt-1"></ws-cart>
+    
+    <!-- For mobile starts  -->
+    <h3 class="d-inline position-relative p-0 d-md-none" style="color: #757677; border-color: #e1e2e4; border-style: solid; border-width: 0.6mm; padding: 5px 5px" >
+      Cart -   <b style="color: rgba(46, 97, 165, 0.822);">$100&nbsp;&nbsp;</b>  
+      <span class="glyphicon glyphicon-shopping-cart"></span>
+      &nbsp;
+
+      <span class="text-center p-1 bg-primary rounded-circle " style="font-size: 12px; width: 18px; height: 18px; color: white; line-height: 12px; position: absolute; top:-9px; right:-9px">5</span>
+    </h3>
+    <!-- For mobile ends  -->
+
+  </div>
+</section>
+
+<!-- Bottom Navbar  -->
+<nav id="id_nav" class="navbar navbar-expand-md navbar-light d-none d-md-flex"  style="background-color: #e1e2e4; height: 40px; padding-top: 0; padding-bottom: 0;">
+  <div class="container d-inline" style="align-items:flex-start; width: 88vw;" id="second-nav">
+    <a href="#" class="nav-link d-inline" style="text-decoration: none; color: #757677;">HOME</a>
+    <a href="#" class="nav-link d-inline" style="text-decoration: none; color: #757677;">CATEGORY</a>
+    <a href="#" class="nav-link d-inline" style="text-decoration: none; color: #757677;">OTHERS</a>
+    <a href="#" class="nav-link d-inline" style="text-decoration: none; color: #757677;">CONTACT</a>
+  </div>
+</nav>

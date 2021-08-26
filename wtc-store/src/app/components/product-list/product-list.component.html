@@ -1,0 +1,15 @@
+<div class="container mt-3 mb-3" >
+    <div class="row row-cols-5">
+        <div *ngFor="let product of currentProductList" class="col"><ws-product-card [product]="product"></ws-product-card></div>
+    </div>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item"><a role="button" class="page-link" (click)="changePage(1)">Previous</a></li>
+          <li class="page-item"><a role="button" class="page-link" (click)="changePage(1)">1</a></li>
+          <li class="page-item"><a role="button" class="page-link" (click)="changePage(2)">2</a></li>
+          <li class="page-item"><a role="button" class="page-link" (click)="changePage(3)">3</a></li>
+          <li class="page-item"><a role="button" class="page-link" (click)="changePage(3)">Next</a></li>
+        </ul>
+      </nav>
+</div>

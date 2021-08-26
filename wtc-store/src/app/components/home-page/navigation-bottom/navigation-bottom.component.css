@@ -1,0 +1,17 @@
+
+#list-usernav > p {
+    margin-bottom: 5px;
+    margin-top: 15px;
+    font-size: 13px;
+}
+#list-usernav > p > a {
+    color: #b0b0b0 !important;
+    text-decoration: none;
+}
+#list-usernav > hr {
+    margin: 0 0;
+    border: 2px dotted #b0b0b0;
+    border-style: none none dotted; 
+    color: #333333; 
+    background-color: #333333;
+}
