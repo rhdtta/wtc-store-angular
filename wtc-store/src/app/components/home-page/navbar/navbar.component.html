@@ -7,7 +7,7 @@
         </a>
       <a *ngIf="loggedIn" href="#" class="navbar-brand navbar-text h1" style="vertical-align: middle;" routerLink="profile" >
         <i class="bi bi-person-circle" style="font-size: 20px; margin-right: 4px; position: relative; top: 2px;"></i><span *ngIf="!loggedIn" class="d-none d-md-inline" style="font-size: 14px;">Login</span>
-        <span class="d-none d-md-inline" style="font-size: 14px;">{{currentUserName}}</span>
+        <span class="d-none d-md-inline" style="font-size: 14px;">{{name}}</span>
       </a>
       <!-- This button is toggled on when the windows size is less than md, and simultaneously the dorpdown-list appears -->
       <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#dropdown-list" aria-expanded="false" aria-controls="Dropdown List"><i class="glyphicon glyphicon-align-center"></i></button>
@@ -66,7 +66,7 @@
     <a routerLink='home'>
       <h3 style="color: #757677;" class="d-inline" >WTC Store</h3>
     </a>
-    <ws-cart class="mt-1"></ws-cart>
+    <ws-cart *ngIf="loggedIn" class="mt-1"></ws-cart>
     
     <!-- For mobile starts  -->
     <h3 class="d-inline position-relative p-0 d-md-none" style="color: #757677; border-color: #e1e2e4; border-style: solid; border-width: 0.6mm; padding: 5px 5px" >

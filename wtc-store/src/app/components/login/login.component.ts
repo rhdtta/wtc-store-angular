@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { userLogin } from 'src/app/store/users/users.actions';
-import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut  } from 'firebase/auth';
 import { auth } from 'src/app/services/auth.firebase';
 import { Router } from '@angular/router';
-import { loginSuccessful } from 'src/app/store/users/currentUser/currentUser.action';
 
 export interface loginDetails {
   email_id: string,
@@ -26,27 +23,15 @@ export class LoginComponent implements OnInit {
   constructor(private store: Store,
     private router: Router) { }
   
-  ngOnInit(): void {
-    auth.onAuthStateChanged(user => {
-      console.log(user);
-    })
-  }
+  ngOnInit(): void {}
 
   onSubmit() {
     signInWithEmailAndPassword(auth, this.loginDetails.email_id, this.loginDetails.password)
       .then((userCredential) => {
         const user = userCredential.user;
-        this.router.navigate(['/home']);
-        this.store.dispatch(loginSuccessful(
-          {user: {
-          uid: user.uid,
-          name: user.displayName? user.displayName : '',
-          cart: []
-          }})
-        );
+        this.router.navigate(['/home'])
       })
       .catch((error) => {
-
         console.log(error.message)
       })
   }
@@ -86,4 +71,11 @@ export class LoginComponent implements OnInit {
 //         ".write": "auth != null && auth.uid == $uid"
 //       }
 //     }
+// }
+
+// {
+//   "rules": {
+//     ".read": "now < 1632940200000",  // 2021-9-30
+//     ".write": "now < 1632940200000",  // 2021-9-30
+//   }
 // }

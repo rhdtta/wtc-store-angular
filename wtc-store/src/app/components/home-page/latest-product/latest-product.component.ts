@@ -19,7 +19,6 @@ export class LatestProductComponent implements OnInit {
       this.randomNum.forEach((x,i) => this.productList[i] = data.products[x]);
     });
   }
-  
 }
 
 function randomNumFiller(x: number): Array<number> {

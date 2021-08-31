@@ -27,6 +27,7 @@ import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { SignupComponent } from './components/signup/signup.component';
 import { currentUserReducer } from './store/users/currentUser/currentUser.reducer';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -45,12 +46,13 @@ import { currentUserReducer } from './store/users/currentUser/currentUser.reduce
     OthersComponent,
     ContactComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({navbarOptions: navbarOptionReducer, products: productsReducer, users: userReducer, currentUser: currentUserReducer}),
+    StoreModule.forRoot({navbarOptions: navbarOptionReducer, products: productsReducer}),
     StoreDevtoolsModule.instrument(),
     EffectsModule.forRoot([productListEffects]),
     FormsModule

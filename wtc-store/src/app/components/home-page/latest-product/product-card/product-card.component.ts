@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { app, auth } from 'src/app/services/auth.firebase';
 import { Product } from 'src/app/store/products/products.action';
 import { addUser, User } from 'src/app/store/users/users.actions';
+import { getDatabase, push, ref, set } from "firebase/database";
 
 export const dummy: User = {email_id: "aa",
 name: "roh",
@@ -32,6 +34,22 @@ export class ProductCardComponent implements OnInit {
   }
 
   addToCart(id: number){
+    if(auth.currentUser){
+      const database = getDatabase(app);
+      const path= '/'+ auth.currentUser.uid + '/cart'; 
+      push(ref(database, path), id);
+    }
+    console.log(auth.currentUser)
+    console.log("added")
   }
 
 }
+
+ // const app = initializeApp(firebaseConfig);
+  // const db = getDatabase();
+  // console.log(db)
+  
+  // set(ref(db, '/' +'1324'), {
+  //   username: ['Hello', 'There', 'My', 'Friend']
+    
+  // });

@@ -15,7 +15,6 @@ export const currentUserReducer = createReducer(
         return state;
     }),
     on(loginSuccessful, (state, user) => {
-        console.log(user.user.name);
         state = {...state, uid: user.user.uid, name: user.user.name}
         return state;
     })

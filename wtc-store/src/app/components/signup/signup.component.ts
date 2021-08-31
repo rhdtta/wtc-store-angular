@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { initializeApp } from '@firebase/app';
 import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { loginDetails } from '../login/login.component';
-import { auth } from "src/app/services/auth.firebase";
+import { app, auth } from "src/app/services/auth.firebase";
 import { Router } from "@angular/router";
 import { Store } from "@ngrx/store";
 import { loginSuccessful } from "src/app/store/users/currentUser/currentUser.action";
@@ -35,7 +35,11 @@ export class SignupComponent implements OnInit {
       .then((userCredential) => {
         updateProfile(userCredential.user, {
           displayName: this.signupDetails.name
-        })
+        });
+        const database = getDatabase(app);
+        set(ref(database, '/' + userCredential.user.uid), {
+        cart: ['-1']
+        });
         this.route.navigate(['/home']);
       })
     .catch((error) => {
@@ -43,15 +47,6 @@ export class SignupComponent implements OnInit {
       const errorMessage = error.message;
       console.log(errorMessage)
     });
-    if(auth.currentUser){
-      this.store.dispatch(loginSuccessful(
-        {user: {
-        uid: auth.currentUser.uid,
-        name: auth.currentUser.displayName? auth.currentUser.displayName : '',
-        cart: []}
-        })
-      );
-    }
   }
 }
 
