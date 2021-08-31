@@ -1,5 +1,7 @@
 
 <div class="container w-25">
+    <h4 class="d-flex justify-content-center mt-5 mb-4" style="font-family: 'Homemade Apple', cursive; font-size: x-large;">Sign Up</h4>
+    
     <form (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="name">Name</label>
@@ -24,10 +26,10 @@
         </div>
 
         <div class="d-flex justify-content-start" >
-            <button class="btn btn-dark mt-3 w-25">Sign Up</button>
-
+            <button class="btn btn-dark mt-3">Sign Up</button>
+            <button routerLink="/login" class="btn btn-light border ms-3 mt-4" style="font-size: 12px; height: fit-content;">Go to Login</button>
         </div>
-        
     </form>
+    <img src="assets/img/logo.png" class="d-flex mx-auto" alt="" style="position: absolute; top: 85%; left: 87%;">
 
 </div>

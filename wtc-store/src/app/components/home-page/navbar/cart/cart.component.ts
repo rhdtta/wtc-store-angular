@@ -30,14 +30,11 @@ export class CartComponent implements OnInit {
               this.store.subscribe(data => {
                 console.log(x)
                 this.totalAmount += data.products[x as number - 1].offer_price as number;
-              })
-              
+              }) 
             }
           })
         });
-        
       }
     })
   }
-
 }
