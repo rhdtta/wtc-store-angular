@@ -1,7 +1,9 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, QueryList, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Product } from 'src/app/store/products/products.action';
 import { BehaviorSubject } from 'rxjs';
+import { ViewChildren } from '@angular/core';
+
 
 @Component({
   selector: 'ws-product-list',
@@ -19,6 +21,7 @@ export class ProductListComponent implements OnInit {
 
   @ViewChild("prev", { static: true }) prev: ElementRef = new ElementRef("li");
   @ViewChild("next", { static: true }) next: ElementRef = new ElementRef("li");
+  @ViewChildren("pages") pageList: QueryList<ElementRef> = new QueryList;
 
   constructor(private store: Store<{products: Array<Product>}>) { }
 
@@ -29,16 +32,18 @@ export class ProductListComponent implements OnInit {
       
       this.currentPage$.subscribe(n => {
         this.currentPage = n;
-        this.endCheck();
         this.fillCurrentList(n);
         this.fillCurrentProductList(data.products);
+        this.endCheck();
       })
     });
   }
 
-  
-
-
+  ngAfterViewInit() {
+    this.currentPage$.subscribe(() => {
+      this.setActive();
+    })
+  }
 
   //Event Emitter Function
   changePage(n: number) {
@@ -85,15 +90,28 @@ export class ProductListComponent implements OnInit {
     else if(n === 1){
       // console.log('two');
       this.prev.nativeElement.classList.add('disabled');
+      this.next.nativeElement.classList.remove('disabled');
     }else if(n === this.totalPages){
       // console.log('three');
       this.next.nativeElement.classList.add('disabled');
+      this.prev.nativeElement.classList.remove('disabled');
     }
     else{
       // console.log('four');
       this.next.nativeElement.classList.remove('disabled');
       this.prev.nativeElement.classList.remove('disabled');
     }
+  }
+
+  setActive() {
+    this.pageList.forEach(x => {
+      if(x.nativeElement.innerText == this.currentPage){
+        x.nativeElement.classList.add("active")
+      }
+      else{
+        x.nativeElement.classList.remove("active")
+      }
+    });
   }
 
 }

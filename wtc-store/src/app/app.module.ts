@@ -20,7 +20,13 @@ import { EffectsModule } from '@ngrx/effects';
 import { productListEffects } from './store/products/products.effects';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductDisplayComponent } from './components/product-display/product-display.component';
-
+import { OthersComponent } from './components/others/others.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { userReducer } from './store/users/users.reducer';
+import { LoginComponent } from './components/login/login.component';
+import { FormsModule } from '@angular/forms';
+import { SignupComponent } from './components/signup/signup.component';
+import { currentUserReducer } from './store/users/currentUser/currentUser.reducer';
 
 @NgModule({
   declarations: [
@@ -35,16 +41,22 @@ import { ProductDisplayComponent } from './components/product-display/product-di
     FooterComponent,
     ProductCardComponent,
     ProductListComponent,
-    ProductDisplayComponent
+    ProductDisplayComponent,
+    OthersComponent,
+    ContactComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({navbarOptions: navbarOptionReducer, products: productsReducer}),
+    StoreModule.forRoot({navbarOptions: navbarOptionReducer, products: productsReducer, users: userReducer, currentUser: currentUserReducer}),
     StoreDevtoolsModule.instrument(),
-    EffectsModule.forRoot([productListEffects])
+    EffectsModule.forRoot([productListEffects]),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+ }

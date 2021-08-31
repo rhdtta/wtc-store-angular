@@ -6,7 +6,7 @@
     <nav class="d-flex justify-content-center mt-3" aria-label="Page navigation example">
         <ul class="pagination">
           <li class="page-item" #prev><a role="button" class="page-link" (click)="previousPage()">Previous</a></li>
-          <li *ngFor="let pageNumber of pageNumbers" class="page-item"><a role="button" class="page-link" (click)="changePage(pageNumber)">{{pageNumber}}</a></li>
+          <li #pages *ngFor="let pageNumber of pageNumbers" class="page-item" ><a role="button" class="page-link" (click)="changePage(pageNumber)">{{pageNumber}}</a></li>
           <li class="page-item" #next><a role="button" class="page-link" (click)="nextPage()">Next</a></li>
         </ul>
       </nav>

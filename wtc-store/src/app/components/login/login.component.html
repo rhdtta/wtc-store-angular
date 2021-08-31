@@ -1,0 +1,45 @@
+
+<div class="container w-25">
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="email">Email Id</label>
+            <input type="email" class="form-control" id="email"
+                   required
+                   [(ngModel)]="loginDetails.email_id" name="email"
+                   #email="ngModel">
+        </div>
+        <div class="form-group">
+            <label for="name">Password</label>
+            <input type="password" class="form-control" id="password"
+                   required
+                   [(ngModel)]="loginDetails.password" name="password"
+                   #password="ngModel">
+        </div>
+
+        <div class="d-flex justify-content-start" >
+            <button class="btn btn-dark mt-3 w-25">Login</button>
+
+        </div>
+        
+    </form>
+
+    <div class="d-flex justify-content-center">
+       <h6 style="font-size: 14px;">
+           <br>
+           <br>
+           New Here?
+       </h6>
+    </div>
+    <div class="d-flex justify-content-center">
+        <a href="#" style="color: black;" routerLink="/signup">
+            <h6>
+                Sign Up
+            </h6>
+        </a>
+    </div>
+
+    <div>
+        {{hello}}
+    </div>
+</div>
+
