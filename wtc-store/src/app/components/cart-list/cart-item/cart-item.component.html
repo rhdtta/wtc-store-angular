@@ -1,0 +1,28 @@
+
+
+<!-- <p *ngIf="itemCount">{{product.product}} 
+    <button (click)="delete(prop.keys[0])">delete</button>
+    {{itemCount}}
+        
+</p>  -->
+
+<div *ngIf="itemCount" class="container">
+    <div class="row">
+        <div class="col-4">
+            <b>{{product.product}}</b>
+        </div>
+        <div class="col-2">
+            <p>${{product.offer_price}}</p>
+        </div>
+        <div class="col-2">
+            <p>Count: {{itemCount}}</p>
+        </div>
+        <div class="col-2">
+            <p>Total: ${{itemCount*product.offer_price}}</p>
+        </div>
+        <div class="col-2">
+            <button (click)="delete(prop.keys[0])">delete</button>
+        </div>
+    </div>
+</div>
+

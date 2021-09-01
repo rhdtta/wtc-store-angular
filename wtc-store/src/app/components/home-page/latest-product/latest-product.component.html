@@ -3,21 +3,20 @@
       <h1 style="font-size: 60px; font-weight: 200;">Latest Products</h1>
     </div>
 </section>
-<div class="d-flex container" style="max-width: 92%;">
+<div class="d-flex container mb-5" style="max-width: 92%;">
   <button class="btn disabled" onclick="prev()" >
     <i class="bi bi-arrow-left-short text-dark fs-3"></i>
   </button>
 
-  <ws-product-card class="ms-1 me-1"></ws-product-card>
-  <ws-product-card class="ms-1 me-1"></ws-product-card>
-  <ws-product-card class="ms-1 me-1"></ws-product-card>
-  <ws-product-card class="ms-1 me-1"></ws-product-card>
-  <ws-product-card class="ms-1 me-1"></ws-product-card>
+  <ws-product-card *ngFor="let product of currentProductList" [product]=product class="ms-1 me-1"></ws-product-card>
+  
   
   <button class="btn" onclick="prev()" style="margin-left: auto;">
     <i class="bi bi-arrow-right-short text-dark fs-3"></i>
   </button>
 </div>
+
+
   
     <!-- 7. Recommended Products Starts -->
     <!-- <div class="container mb-4 d-none d-md-flex" style="display: flex; justify-content: space-evenly;">

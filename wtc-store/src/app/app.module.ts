@@ -22,12 +22,15 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { ProductDisplayComponent } from './components/product-display/product-display.component';
 import { OthersComponent } from './components/others/others.component';
 import { ContactComponent } from './components/contact/contact.component';
-import { userReducer } from './store/users/users.reducer';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { SignupComponent } from './components/signup/signup.component';
-import { currentUserReducer } from './store/users/currentUser/currentUser.reducer';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ImageArrayComponent } from './components/product-display/image-array/image-array.component';
+import { CartListComponent } from './components/cart-list/cart-list.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CartItemComponent } from './components/cart-list/cart-item/cart-item.component'; 
 
 @NgModule({
   declarations: [
@@ -47,7 +50,10 @@ import { ProfileComponent } from './components/profile/profile.component';
     ContactComponent,
     LoginComponent,
     SignupComponent,
-    ProfileComponent
+    ProfileComponent,
+    ImageArrayComponent,
+    CartListComponent,
+    CartItemComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +61,9 @@ import { ProfileComponent } from './components/profile/profile.component';
     StoreModule.forRoot({navbarOptions: navbarOptionReducer, products: productsReducer}),
     StoreDevtoolsModule.instrument(),
     EffectsModule.forRoot([productListEffects]),
-    FormsModule
+    FormsModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

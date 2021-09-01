@@ -34,7 +34,7 @@ export class LatestProductComponent implements OnInit {
       this.fillCurrentList(n);
       this.fillCurrentProductList(data.products);
       this.endCheck();
-    })})
+    })});
   }
 
 

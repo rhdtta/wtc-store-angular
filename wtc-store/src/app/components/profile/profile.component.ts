@@ -1,4 +1,6 @@
+import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { auth } from 'src/app/services/auth.firebase';
 
 @Component({
@@ -8,13 +10,14 @@ import { auth } from 'src/app/services/auth.firebase';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
   onSubmit() {
-    auth.signOut()
+    auth.signOut();
+    this.router.navigate(['/home']);
   }
 
 }

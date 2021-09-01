@@ -15,8 +15,6 @@ export class CartComponent implements OnInit {
   constructor(private store: Store<{products: Product[]}>) { }
 
   ngOnInit(): void {
-    
-    
     onAuthStateChanged(auth, () => {
       if(auth.currentUser){
         const path= '/'+ auth.currentUser.uid + '/cart'; 
@@ -28,7 +26,6 @@ export class CartComponent implements OnInit {
           Object.values(snapshot.val()).forEach(x => {
             if(x as number >0){
               this.store.subscribe(data => {
-                console.log(x)
                 this.totalAmount += data.products[x as number - 1].offer_price as number;
               }) 
             }

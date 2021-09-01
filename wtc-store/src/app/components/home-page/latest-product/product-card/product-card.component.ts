@@ -4,6 +4,8 @@ import { app, auth } from 'src/app/services/auth.firebase';
 import { Product } from 'src/app/store/products/products.action';
 import { addUser, User } from 'src/app/store/users/users.actions';
 import { getDatabase, push, ref, set } from "firebase/database";
+import * as $ from 'jquery';
+import { ToastrService } from 'ngx-toastr';
 
 export const dummy: User = {email_id: "aa",
 name: "roh",
@@ -28,7 +30,8 @@ export class ProductCardComponent implements OnInit {
   };
   random: number = Math.floor(Math.random()*5 + 1);
   
-  constructor(private store: Store) { }
+  constructor(private store: Store,
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -38,11 +41,16 @@ export class ProductCardComponent implements OnInit {
       const database = getDatabase(app);
       const path= '/'+ auth.currentUser.uid + '/cart'; 
       push(ref(database, path), id);
+    }else{
+      this.logInIssue();
     }
-    console.log(auth.currentUser)
-    console.log("added")
+    // console.log(auth.currentUser)
+    // console.log("added")
   }
 
+  logInIssue() {
+    this.toastr.info("User Not Logged In", 'Please Log In First');  
+  }
 }
 
  // const app = initializeApp(firebaseConfig);

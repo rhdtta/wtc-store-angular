@@ -1,0 +1,7 @@
+<div class="d-flex justify-content-center">
+    <img src="assets/img/products/product-{{currentNum}}.jpg" alt="" >
+</div>
+
+<div class="container d-flex mt-5">
+    <img #array #num *ngFor="let num of randomArray" src="assets/img/products/product-{{num}}.jpg" alt="" width="18%" (click)="onClick(num)">
+</div>

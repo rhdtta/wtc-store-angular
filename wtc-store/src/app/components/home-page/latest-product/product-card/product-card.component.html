@@ -2,20 +2,24 @@
     <a routerLink='/products/id/{{product.id}}'>
       <img src="assets/img/products/product-{{random}}.jpg" class="card-img-top" alt="...">
     </a>
-      <div class="card-body">
-        <a routerLink='/products/id/{{product.id}}'>
-          <h6 style="font-size: 16px; margin-bottom: 0;">{{product.product}}</h6>
+    <div class="card-body">
+      <a routerLink='/products/id/{{product.id}}'>
+        <h6 style="font-size: 16px; margin-bottom: 0;">{{product.product}}</h6>
+      </a>
+      
+      <div class="card-text">
+        <b style="font-size: 14px; color: cornflowerblue;">${{product.offer_price}}.00</b> &nbsp; <p class="d-inline" style="font-size: 12px; text-decoration: line-through;">${{product.price}}.00</p>
+        <br>
+        <a role="button" >
+          <span class="bi bi-cart3 me-1"></span>
+          <b (click)="addToCart(product.id)">Add to cart</b> 
         </a>
-        
-        <div class="card-text">
-          <b style="font-size: 14px; color: cornflowerblue;">${{product.offer_price}}.00</b> &nbsp; <p class="d-inline" style="font-size: 12px; text-decoration: line-through;">${{product.price}}.00</p>
-          <br>
-          <a role="button" >
-            <span class="bi bi-cart3 me-1"></span>
-            <b (click)="addToCart(product.id)">Add to cart</b> 
-          </a>
-        </div>
       </div>
     </div>
+  </div>
+
+
+
+
 
 
